@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leadership Styles</title>
+  <style>
+    body {
+      font-family: Calibri, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+      padding: 40px;
+    }
+    
+    .card {
+      width: 300px;
+      height: 200px;
+      background: #ccc;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+.card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      border-radius: 10px 10px 0 0;
+    }
+    .hidden {
+      display: none;
+    }
+    .definition-screen {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 60px;
+      text-align: center;
+      color: white;
+    }
+    .definition-screen.active {
+      display: flex !important;
+    }
+    .definition-text {
+      font-size: 35pt;
+      max-width: 80%;
+    }
+    .back-btn {
+      margin-top: 40px;
+      font-size: 20px;
+      padding: 10px 20px;
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main">
+  <div class="card" style="background:#E53935" onclick="showDefinition('charismatic')">
+    
+    CHARISMATIC<br/>VALUE BASED
+  </div>
+  <div class="card" style="background:#F4A300" onclick="showDefinition('team')">
+    
+    TEAM ORIENTED
+  </div>
+  <div class="card" style="background:#757F6B" onclick="showDefinition('participative')">
+    
+    PARTICIPATIVE
+  </div>
+  <div class="card" style="background:#28A5AD" onclick="showDefinition('humane')">
+    
+    HUMANE ORIENTED
+  </div>
+  <div class="card" style="background:#94AD55" onclick="showDefinition('autonomous')">
+    
+    AUTONOMOUS
+  </div>
+  <div class="card" style="background:#00676E" onclick="showDefinition('self')">
+    
+    SELF PROTECTIVE
+  </div>
+</div>
+
+<div id="charismatic" class="definition-screen" style="background:#E53935">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Vision.png" alt="charismatic image" style="max-width:400px; margin-bottom:30px;"><br>Inspires and motivates through vision, integrity, and performance-based rewards.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="team" class="definition-screen" style="background:#F4A300">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Team.png" alt="team image" style="max-width:400px; margin-bottom:30px;"><br>Focuses on building effective teams through collaboration, diplomacy, and administrative competence.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="participative" class="definition-screen" style="background:#757F6B">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Participative.png" alt="participative image" style="max-width:400px; margin-bottom:30px;"><br>Involves others in decision-making and encourages input and delegation.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="humane" class="definition-screen" style="background:#28A5AD">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Humane.png" alt="humane image" style="max-width:400px; margin-bottom:30px;"><br>Emphasizes compassion, generosity, and supportiveness.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="autonomous" class="definition-screen" style="background:#94AD55">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Autonomous.png" alt="autonomous image" style="max-width:400px; margin-bottom:30px;"><br>Stresses independence, self-reliance, and individualism in leadership.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<div id="self" class="definition-screen" style="background:#00676E">
+  <div class="definition-text"><img src="https://raw.githubusercontent.com/drwildermuth/global-leadership-styles/refs/heads/main/Self%20Protective.png" alt="self image" style="max-width:400px; margin-bottom:30px;"><br>Focuses on ensuring safety, status, and face-saving, often through procedural or status-conscious behavior.
+  </div>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script>
+  function showDefinition(id) {
+    console.log("Clicked:", id);
+    document.getElementById("main").style.display = "none";
+    const screens = document.querySelectorAll('.definition-screen');
+    screens.forEach(screen => screen.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+  }
+
+  function goBack() {
+    const screens = document.querySelectorAll('.definition-screen');
+    screens.forEach(screen => screen.classList.remove('active'));
+    document.getElementById("main").style.display = "grid";
+  }
+</script>
+
+</body>
+</html>
